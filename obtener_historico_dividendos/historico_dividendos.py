@@ -27,3 +27,6 @@ def tabla_div():
             print(ticker)
             continue
     df.to_csv('resultados_dividendos.csv', index = True)
+
+if __name__ == '__main__':
+    tabla_div()
