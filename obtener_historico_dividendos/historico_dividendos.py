@@ -11,8 +11,8 @@ def tabla_div():
         try:
             one_day = timedelta(days=600)
             first_day_of_the_month = date.today().replace(day=1)
-            fecha_de_inidicio = first_day_of_the_month - one_day
-            aux_div = si.get_dividends(ticker, start_date=fecha_de_inidicio)
+            fecha_de_inicio = first_day_of_the_month - one_day
+            aux_div = si.get_dividends(ticker, start_date=fecha_de_inicio)
 
             df2 = pd.DataFrame(index=aux_div.index.astype(str).to_list(), data=aux_div['dividend'].tolist(),
                               columns=[ticker])
