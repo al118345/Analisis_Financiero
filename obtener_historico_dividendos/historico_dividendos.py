@@ -11,9 +11,8 @@ def tabla_div():
         try:
             one_day = timedelta(days=600)
             first_day_of_the_month = date.today().replace(day=1)
-            last_day_of_last_month = first_day_of_the_month - one_day
-            #aux = si.get_quote_table(ticker)
-            aux_div = si.get_dividends(ticker, start_date=last_day_of_last_month)
+            fecha_de_inidicio = first_day_of_the_month - one_day
+            aux_div = si.get_dividends(ticker, start_date=fecha_de_inidicio)
 
             df2 = pd.DataFrame(index=aux_div.index.astype(str).to_list(), data=aux_div['dividend'].tolist(),
                               columns=[ticker])
@@ -21,7 +20,6 @@ def tabla_div():
             df = df.sort_index(ascending=False)
             cont = cont +1
 
-            #df = pd.DataFrame(index=aux_div.index.astype(str).to_list(), data=aux_div['dividend'].tolist() , columns=[ticker])
         except Exception as error:
             print(str(error))
             print(ticker)
